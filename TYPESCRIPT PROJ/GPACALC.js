@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var GradeSchema;
 (function (GradeSchema) {
     GradeSchema[GradeSchema["A"] = 5] = "A";
@@ -11,7 +13,7 @@ var inputs = [
     {
         courseName: "Maths",
         courseUnit: 3,
-        score: 24
+        score: 25
     },
     {
         courseName: "English",
@@ -21,11 +23,11 @@ var inputs = [
     {
         courseName: "Biology",
         courseUnit: 4,
-        score: 56
+        score: 55
     }
 ];
 function calculatGrade(score) {
-    if (score <= 0 || score > 100) {
+    if (score < 0 || score > 100) {
         throw new Error("Invalid score");
     }
     if (score >= 70) {
@@ -47,34 +49,28 @@ function calculatGrade(score) {
         return { grade: GradeSchema[0], gradeUnit: GradeSchema.F };
     }
 }
+var result = [];
 function calculateGPA(inputs) {
     var totalQualityPoint = 0;
-    var totalGradeUnit = 0;
-    var result = [];
+    var totalCourseUnit = 0;
     inputs.map(function (course) {
         var grade = calculatGrade(course.score);
-        console.log(grade);
         var qualityPoint = course.courseUnit * grade.gradeUnit;
         totalQualityPoint += qualityPoint;
-        totalGradeUnit += course.courseUnit;
-        console.log({
-            courseName: course.courseName,
-            courseUnit: course.courseUnit,
-            score: course.score,
-            grade: grade.grade,
-            gradeUnit: grade.gradeUnit
-        });
+        totalCourseUnit += course.courseUnit;
         result.push({
             courseName: course.courseName,
             courseUnit: course.courseUnit,
             score: course.score,
             grade: grade.grade,
-            gradeUnit: grade.gradeUnit
+            gradeUnit: grade.gradeUnit,
+            qualityPoint: qualityPoint
         });
     });
-    //console.log(totalQualityPoint);
-    //console.log(totalGradeUnit);
-    console.table(result);
-    return totalQualityPoint / totalGradeUnit;
+    printResult();
+    return totalQualityPoint / totalCourseUnit;
 }
-console.log("GPA: ", calculateGPA(inputs));
+function printResult() {
+    console.table(result);
+}
+console.log("GPA: ", calculateGPA(inputs).toFixed(2));

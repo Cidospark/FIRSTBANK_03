@@ -1,3 +1,5 @@
+import GradeInput, { GradeResult } from "./interface";
+
 enum GradeSchema{
     "A" = 5,
     "B" = 4,
@@ -7,15 +9,11 @@ enum GradeSchema{
     "F" = 0
 }
 
-const inputs:{
-    courseName: string,
-    courseUnit: number,
-    score: number
-}[] = [
+const inputs: GradeInput[] = [
     {
         courseName : "Maths",
         courseUnit : 3,
-        score : 24
+        score : 25
     },
     {
         courseName : "English",
@@ -25,13 +23,12 @@ const inputs:{
     {
         courseName : "Biology",
         courseUnit : 4,
-        score : 56
+        score : 55
     }
 ]
 
-
 function calculatGrade(score: number): {grade: string, gradeUnit: number}{ 
-    if(score <= 0 || score > 100){
+    if(score < 0 || score > 100){
         throw new Error("Invalid score");
     }
 
@@ -55,44 +52,36 @@ function calculatGrade(score: number): {grade: string, gradeUnit: number}{
     }   
 }
 
-function calculateGPA(inputs:{courseName: string, courseUnit: number, score: number}[]): number {
-    let totalQualityPoint = 0;
-    let totalGradeUnit = 0;
+let result: GradeResult[] = [];
 
-    let result:{
-        courseName: string,
-        courseUnit: number,
-        score: number,
-        grade: string,
-        gradeUnit: number
-    }[] = [];
+function calculateGPA(inputs:GradeInput[]): number {
+    let totalQualityPoint = 0;
+    let totalCourseUnit = 0;
 
     inputs.map(
         (course) => {
             let grade = calculatGrade(course.score);
-            console.log(grade);
             let qualityPoint = course.courseUnit * grade.gradeUnit;
             totalQualityPoint += qualityPoint;
-            totalGradeUnit += grade.gradeUnit;
-            console.log({
-                courseName: course.courseName,
-                courseUnit: course.courseUnit,
-                score: course.score,
-                grade: grade.grade,
-                gradeUnit: grade.gradeUnit
-            })
+            totalCourseUnit += course.courseUnit;
+
             result.push({
                 courseName: course.courseName,
                 courseUnit: course.courseUnit,
                 score: course.score,
                 grade: grade.grade,
-                gradeUnit: grade.gradeUnit
+                gradeUnit: grade.gradeUnit,
+                qualityPoint: qualityPoint
             });
         }
     );
-    //console.log(totalQualityPoint);
-    //console.log(totalGradeUnit);
-    console.table(result);
-    return totalQualityPoint / totalGradeUnit;
+
+    printResult();
+    return totalQualityPoint / totalCourseUnit;
 }
-console.log("GPA: ", calculateGPA(inputs));
+
+function printResult(){
+    console.table(result);
+}
+
+console.log("GPA: ", calculateGPA(inputs).toFixed(2));
