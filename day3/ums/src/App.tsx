@@ -7,7 +7,9 @@ import { getUsers } from './services/api'
 function App() {
 
   const handleLoadUsers = ()=>{
-    getUsers();
+    getUsers().then(users => console.log(users));
+    // const res = await getUsers();
+    // console.log(res)
   }
 
   return (
