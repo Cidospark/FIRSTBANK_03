@@ -10,15 +10,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var AccountRepository = /** @class */ (function () {
     function AccountRepository() {
         this.accounts = [];
     }
     AccountRepository.prototype.createAccounts = function (accounts) {
-        this.accounts = accounts;
-        // console.log("After add to account repo ")
-        // console.log(this.accounts)
+        this.accounts = __spreadArray(__spreadArray([], this.accounts, true), accounts, true);
     };
     AccountRepository.prototype.updateAccount = function (account) {
         var dbAccount = this.getAccountByNumber(account.accountNumber);
@@ -29,13 +36,8 @@ var AccountRepository = /** @class */ (function () {
         this.accounts.map(function (acc) { return acc.accountNumber === account.accountNumber ? __assign(__assign({}, acc), account) : acc; });
     };
     AccountRepository.prototype.getAccountByNumber = function (accountNumber) {
-        //let acc: Account = { accountNumber : "", balance : 0, accountType : "", ownerId: 0 };
-        var result = this.accounts.map(function (a) {
-            if (a.accountNumber === accountNumber) {
-                return a;
-            }
-        });
-        return result[0];
+        var result = this.accounts.filter(function (acc) { return acc.accountNumber === accountNumber; })[0];
+        return result;
     };
     AccountRepository.prototype.createAccount = function (account) {
         this.accounts.push(account);

@@ -1,9 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var account_1 = require("../../Domains/Entities/account");
+var transactions_1 = require("../../Domains/Entities/transactions");
+var transactionTypes_1 = require("../../Commons/transactionTypes");
 var AccountService = /** @class */ (function () {
-    function AccountService(accRepo) {
+    function AccountService(accRepo, transactionRepo) {
         this.accRepo = accRepo;
+        this.transactionRepo = transactionRepo;
     }
     AccountService.prototype.getAccountDetails = function (accountNumber) {
         return this.accRepo.getAccountByNumber(accountNumber);
@@ -21,6 +24,7 @@ var AccountService = /** @class */ (function () {
         }
         account.balance += amount;
         this.accRepo.updateAccount(account);
+        this.transactionRepo.add(new transactions_1.default(Math.random() + 1, accountNumber, transactionTypes_1.TransactionTypes.deposit, amount, "card", Date.now().toString()));
     };
     AccountService.prototype.withdraw = function (accountNumber, amount) {
         if (amount <= 0) {
@@ -35,6 +39,7 @@ var AccountService = /** @class */ (function () {
         }
         account.balance -= amount;
         this.accRepo.updateAccount(account);
+        this.transactionRepo.add(new transactions_1.default(Math.random() + 1, accountNumber, transactionTypes_1.TransactionTypes.withdrawal, amount, "card", Date.now().toString()));
     };
     AccountService.prototype.transfer = function (fromAccountNumber, toAccountNumber, amount) {
         var fromAccount = this.accRepo.getAccountByNumber(fromAccountNumber);
@@ -48,6 +53,8 @@ var AccountService = /** @class */ (function () {
         // perform withdrawal and deposit
         this.withdraw(fromAccountNumber, amount);
         this.deposit(toAccountNumber, amount);
+        // add transaction to db
+        this.transactionRepo.add(new transactions_1.default(Math.random() + 1, fromAccountNumber, transactionTypes_1.TransactionTypes.transfer, amount, "card", Date.now().toString(), toAccountNumber));
     };
     AccountService.prototype.getAccounts = function () {
         return this.accRepo.accounts;

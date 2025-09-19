@@ -7,10 +7,7 @@ export default class AccountRepository implements IAccountRepository {
    
    
     createAccounts(accounts: Account[]): void {
-        this.accounts = accounts
-
-        // console.log("After add to account repo ")
-        // console.log(this.accounts)
+        this.accounts = [...this.accounts, ...accounts]
     }
 
     updateAccount(account: Account): void {
@@ -23,15 +20,9 @@ export default class AccountRepository implements IAccountRepository {
             { ...acc, ...account } : acc)
     }
     
-    getAccountByNumber(accountNumber: string): Account | undefined {
-        //let acc: Account = { accountNumber : "", balance : 0, accountType : "", ownerId: 0 };
-        
-        let result = this.accounts.map((a) => {
-            if(a.accountNumber === accountNumber){
-                return a;
-            }
-        })
-        return result[0];
+    getAccountByNumber(accountNumber: string): Account {
+        const result = this.accounts.filter(acc => acc.accountNumber === accountNumber)[0];
+        return result;
     }
 
     createAccount(account: Account): void {

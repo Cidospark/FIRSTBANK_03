@@ -1,12 +1,15 @@
 import Account from "../../Domains/Entities/account";
 import IAccountService from "./IAccountService";
 import IAccountRepository from "../../Repositories/AccountRepository/IAccountRepository";
+import ITransactionRepository from "../../Repositories/TransactionReposirtory/ITransactionRepository";
+import Transaction from "../../Domains/Entities/transactions";
+import { TransactionTypes } from "../../Commons/transactionTypes";
 
 export default class AccountService implements IAccountService {
 
-    constructor(private accRepo: IAccountRepository) {}
+    constructor(private accRepo: IAccountRepository, private transactionRepo: ITransactionRepository) {}
 
-    getAccountDetails(accountNumber: string): Account | undefined {
+    getAccountDetails(accountNumber: string): Account {
         return this.accRepo.getAccountByNumber(accountNumber);
     }
 
@@ -26,6 +29,14 @@ export default class AccountService implements IAccountService {
 
         account.balance += amount;
         this.accRepo.updateAccount(account);
+        this.transactionRepo.add(new Transaction(
+            Math.random() + 1, 
+            accountNumber, 
+            TransactionTypes.deposit, 
+            amount,
+            "card",
+            Date.now().toString(),
+        ));
     }
 
     withdraw(accountNumber: string, amount: number): void {
@@ -43,6 +54,14 @@ export default class AccountService implements IAccountService {
 
         account.balance -= amount;
         this.accRepo.updateAccount(account);
+        this.transactionRepo.add(new Transaction(
+            Math.random() + 1, 
+            accountNumber, 
+            TransactionTypes.withdrawal, 
+            amount,
+            "card",
+            Date.now().toString(),
+        ));
 
     }
 
@@ -59,6 +78,17 @@ export default class AccountService implements IAccountService {
         // perform withdrawal and deposit
         this.withdraw(fromAccountNumber, amount);
         this.deposit(toAccountNumber, amount);
+        
+        // add transaction to db
+        this.transactionRepo.add(new Transaction(
+            Math.random() + 1, 
+            fromAccountNumber, 
+            TransactionTypes.transfer, 
+            amount,
+            "card",
+            Date.now().toString(),
+            toAccountNumber
+        ));
 
     }
 
