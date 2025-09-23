@@ -12,8 +12,10 @@ function UserCard(props:User){
             <p>
                 <span>{props.age}</span>&nbsp;&nbsp;<span>{props.gender}</span>
             </p>
-            <p>{props.email}</p>
-            <p>{`${props.address.address}, ${props.address.city}, ${props.address.state}, ${props.address.country}`}</p>
+            <div className="desc">
+                <p>{props.email}</p>
+                <p>{`${props.address.address}, ${props.address.city} ${props.address.state}, ${props.address.country}`}</p>
+            </div>
         </div>
         </>
     );

@@ -1,0 +1,47 @@
+.navbar{
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid grey;
+    padding: 0px 60px;
+    width: 100%;
+    box-sizing: border-box;
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+
+        a{
+            text-decoration: none;
+            font-size: 40px;
+            font-family: bold;
+        }
+    }
+    ul{
+        a{
+            
+            text-decoration: none;
+        }
+
+        a:hover{
+            color: orange;
+        }
+        list-style: none;
+        display: flex;
+        gap:30px;
+        font-size: 25px;
+    }
+}
+
+.search-form{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    input{
+        padding: 5px 15px;
+        border-radius: 50px;
+        border: 1px solid grey;
+    }
+}
