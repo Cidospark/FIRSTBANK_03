@@ -17,3 +17,10 @@ export interface Address{
     postalCode: string,
     country:string
 }
+
+
+export interface UserContextData {
+    userList: User[],
+    search: (term:string) => void,
+    resetList: () => void
+}

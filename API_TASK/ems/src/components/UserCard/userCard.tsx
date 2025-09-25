@@ -1,9 +1,8 @@
 import type { User } from "../../models/user.model";
 import "./userCard.css"
 
-function UserCard(props:User){
+function UserCard(props: Readonly<User>){
     return(
-        <>
         <div className="card-box">
             <div className="img-box">
                 <img src={props.image} alt="" />
@@ -17,7 +16,6 @@ function UserCard(props:User){
                 <p>{`${props.address.address}, ${props.address.city} ${props.address.state}, ${props.address.country}`}</p>
             </div>
         </div>
-        </>
     );
 }
 

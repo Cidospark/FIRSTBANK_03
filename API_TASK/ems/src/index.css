@@ -8,3 +8,22 @@
         text-decoration: none;
     }
 }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } 
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-loader {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 70px; 
+  height: 70px; 
+  opacity: .2;
+  animation: spin .5s linear infinite; 
+}

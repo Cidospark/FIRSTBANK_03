@@ -6,14 +6,12 @@ import NotFound from './components/NotFound/NotFound'
 function App() {
 
   return (
-    <>
      <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
         <Route path='/profile/:id' element={<UserProfile />} />
         <Route path='*' element={<NotFound />} />
      </Routes>
-    </>
   )
 }
 

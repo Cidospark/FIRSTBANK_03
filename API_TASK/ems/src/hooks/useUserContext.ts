@@ -1,10 +1,11 @@
-//import { useContext } from "react";
-//import { userContext } from "../contexts/userContext";
+import { useContext } from "react"
+import { UserContext } from "../contexts/userContext";
 
-// export const useUserContext = () => {
-//   const context = useContext(userContext);
-//   if (!context) {
-//     throw new Error("UseContext must be used inside UseContextProvider");
-//   }
-//   return context;
-// };
+export const UseUserContext = () => {
+    const context = useContext(UserContext);
+    if(!context)
+    {
+        throw new Error("User context must be used inside provided")
+    }
+    return context;
+}
