@@ -8,11 +8,11 @@ import { UserContextProvider } from './contexts/userContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <UserContextProvider>
-      <BrowserRouter>
-      <NavBar />
-      <App />
+    <BrowserRouter>
+      <UserContextProvider>
+        <NavBar />
+        <App />
+      </UserContextProvider>
     </BrowserRouter>
-    </UserContextProvider>
   </StrictMode>,
 )

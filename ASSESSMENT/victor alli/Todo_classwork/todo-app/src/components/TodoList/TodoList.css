@@ -1,0 +1,27 @@
+
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 20px;;
+    border: 1px solid #ddd;
+    padding-left: 20px;
+    
+}
+.todo-checkbox {
+    margin: 10px 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.todo-label {
+    font-size: 20px;
+    flex: 1;
+}

@@ -1,0 +1,134 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+
+
+/*=========================== my styles ============================*/
+body{
+  background-color: #F0F0F0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.rounded-btn{
+  border-radius: 100%;
+}
+.strikeThroughText{
+  text-decoration: line-through;
+}
+.bold-text{
+  font-weight: bold;
+}
+.header{
+  h1{
+    font-size: 50px;
+    margin: 15px;
+  }
+}
+.footer{
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.normal-btn-style{ 
+  background: none; 
+  border: none; 
+  outline: none;
+  padding: 0; 
+  cursor: pointer 
+}
+.normal-btn-style.bordered{ 
+  border: 1px solid rgba(128, 128, 128, 0.329) 
+}
+.normal-btn-style.W100{ 
+  width: 100px 
+}
+.todo-container{
+  width: 700px;
+  margin: 15% auto;
+  border: 1px solid rgb(135, 132, 132);
+}
+.input-control{
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  padding: 10px;
+  margin: 0px;
+  border: 1px solid rgb(179, 175, 175);
+}
+.footer .footer-ls, .footer .footer-rs{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.white-bg.container{
+  padding: 10px; padding-bottom: 0px; border-bottom: 1px solid rgb(179, 175, 175);
+}
+.search-box{
+  width: 150px;
+}
+
+/* colors */
+.red-color{color: rgba(255, 0, 0, 0.44)}
+.white-bg{background-color: white;}
+.light-green-bg{background-color: rgba(229, 245, 147, 0.288);}
+
+/* buttons */
+button.normal-btn-style{
+    border: 1px solid transparent;
+    padding: 5px 7px;
+    border-radius: 6px;
+}
+button.normal-btn-style:hover{
+    border: 1px solid #d00;
+    color: #d00;
+}
+.search-box-cover{
+  position: relative;
+  svg{
+    position: absolute;
+    right: 5px;
+    top:7px;
+    cursor: pointer;
+  }
+}
+

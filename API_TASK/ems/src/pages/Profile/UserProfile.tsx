@@ -37,10 +37,10 @@ function UserProfile(){
 
         // call the handler to trigger api call
         handleGetSingleUser();
-    }, [])
+    }, [id])
 
     // render the user card component with the user data
-    return <><div className="my-contaier profile-box">
+    return <div className="my-contaier profile-box">
             <UserCard 
                 key={user.id}
                 id={user.id}
@@ -52,7 +52,7 @@ function UserProfile(){
                 age={user.age}
                 gender={user.gender}
                 />
-        </div></>
+        </div>
 }
 
 export default UserProfile;

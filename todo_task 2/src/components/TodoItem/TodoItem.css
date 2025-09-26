@@ -1,0 +1,15 @@
+.todo-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(199, 197, 197);
+
+    .todo-item-ls, .todo-item-rs{
+        display: flex;
+        align-items: center;
+        gap:30px;
+    }
+}
+.todo-row:last-child{
+    border: none;
+}

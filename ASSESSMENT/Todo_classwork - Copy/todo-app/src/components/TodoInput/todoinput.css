@@ -1,0 +1,26 @@
+.input-container {
+    display: flex;
+    gap: 8px;
+
+    input {
+        flex: 1;
+        padding: 8px;
+        border-radius: 5px;
+        /* outline: none; */
+        border: 1px solid rgb(209, 208, 208);
+    }
+    button {
+        padding: 12px;
+        background: green;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+
+    }
+
+        button:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+}

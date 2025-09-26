@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import UserProfile from './pages/Profile/UserProfile'
-import NotFound from './components/NotFound/NotFound'
+import NotFound from './pages/NotFound/NotFound'
 
 function App() {
 

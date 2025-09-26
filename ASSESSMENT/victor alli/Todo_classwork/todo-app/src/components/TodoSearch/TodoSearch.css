@@ -1,0 +1,14 @@
+.todo-search {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    max-width: 300px;
+}
+
+.search-input {
+    border: 1px solid #111111;
+    border-radius: 4px;
+    padding: 20px;
+    font-size: 16px;
+    flex: 1;
+}
