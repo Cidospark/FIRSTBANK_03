@@ -8,13 +8,9 @@ export const TodoContextProvider = ({children}:{children:ReactNode}) => {
                             {id:1, text:"Learn JavaScript", status: "start" }, 
                             {id:2, text:"Learn React", status: "completed"}, 
                             {id:3, text:"Build a React App", status: "stop" },
-                        ]//useMemo(() => , []);
+                        ];
     const [todoList, setTodoList] = useState<TodoItemModel[]>(initialList);
                         
-    // useEffect(()=>{
-    //     setTodoList(initialList);
-    // },[initialList])
-    
     function addTodo(todo:TodoItemModel ){
         setTodoList([...todoList, todo]) // add to array using spread
     }

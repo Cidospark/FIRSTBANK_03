@@ -7,8 +7,6 @@ function TodoItem({ text, status, id}: TodoItemModel) {
     
     const strikeText = status === 'completed' ? 'strikeThroughText' : '';
     const boldText = status === 'start' ? 'bold-text' : '';
-    // const activationStatus = status == 'activate' ? 'deactivate' : 
-    //                                status == 'deactivate' ? 'activate' : 'completed' ;
 
     // functionalities
     function handleDelete(id:number){
