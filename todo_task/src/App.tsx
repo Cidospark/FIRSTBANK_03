@@ -4,44 +4,48 @@ import TodoItemList from './components/TodoItemList/TodoItemList'
 import type { TodoItemProps } from './models/TodoItemProps.model'
 import "./App.css"
 import FFButton from './components/FFButton/FFButton'
-import { useState } from 'react'
+import { useEffect, useState, useMemo, useCallback } from 'react'
+
 
 function App() {
   const [showSearchBox, setShowSearchBox] = useState(false);
   const [formData, setFormData] = useState({newTask:""})
-  const [list, setList] = useState<TodoItemProps[]>([
-      {id:1, text:"Learn JavaScript", status: "activate", onUpdateChild:changeStatus, onRemoveChild:removeItem }, 
-      {id:2, text:"Learn React", status: "completed", onUpdateChild:changeStatus, onRemoveChild:removeItem }, 
-      {id:3, text:"Build a React App", status: "deactivate", onUpdateChild:changeStatus, onRemoveChild:removeItem },
-  ])
+  const [todos, setTodos] = useState<TodoItemProps[]>([])
 
-  function toggleSearchBar(){
-    setShowSearchBox(!showSearchBox);
-  }
+const changeStatus = useCallback((id: number, statusType: string) => {
+  const todo = todos.find(t => t.id == id);
+  if(todo)
+    alert(todo.id)
+}, []);
 
-  /** functionalities starts here */
-  function addNewTodo(text:string){
-    setList([...list, {id:Date.now(), text:text, status: "activate", onUpdateChild:changeStatus, onRemoveChild:removeItem}]);
-  }
-  function changeStatus(id:number, statusType: string){
-    // let newStatus = "";
-    // if(statusType == "activate"){newStatus = "deactivate"}
-    // if(statusType == "deactivate"){newStatus = "activate"}
-    // // alert(newStatus)
-    // const updatedList = list.map(l => l.id === id ? { ...l, status: newStatus } : l);
-    // setList(updatedList)
-    alert(`${id}, ${statusType}`)
-  }
+const removeItem = useCallback((id: number) => {
+  setTodos(prevTodos => prevTodos.filter(i => i.id !== id));
+}, []);
 
-  function handleFormData(e){
-    setFormData({...formData, [e.target.name]: e.target.value})
-  }
+const list: TodoItemProps[] = useMemo(() => [
+    {id:1, text:"Learn JavaScript", status: "activate", onUpdateChild:changeStatus, onRemoveChild:removeItem }, 
+    {id:2, text:"Learn React", status: "completed", onUpdateChild:changeStatus, onRemoveChild:removeItem }, 
+    {id:3, text:"Build a React App", status: "deactivate", onUpdateChild:changeStatus, onRemoveChild:removeItem },
+], [changeStatus, removeItem]);
 
-  function removeItem(id:number){
-    const filteredList = list.filter(i => i.id !== id)
-    setList(filteredList)
-  }
-  /** functionalities ends here */
+useEffect(()=>{
+  setTodos([...list])
+},[list])
+
+/** functionalities starts here */
+
+function toggleSearchBar(){
+  setShowSearchBox(!showSearchBox);
+}
+
+function addNewTodo(text:string){
+  setTodos([...todos, {id:Date.now(), text:text, status: "activate", onUpdateChild:changeStatus, onRemoveChild:removeItem}]);
+}
+
+function handleFormData(e){
+  setFormData({...formData, [e.target.name]: e.target.value})
+}
+/** functionalities ends here */
 
 
   return (
@@ -59,7 +63,7 @@ function App() {
                   onChange={handleFormData}
             />
           </div>
-          <TodoItemList  list={list} />
+          <TodoItemList  list={todos} />
         </section>
       </div>
       <section className='footer light-green-bg'>
@@ -75,7 +79,7 @@ function App() {
             </div>}
 
             <div> | </div>
-            <span>3 items left</span>
+            <span>{todos.length} items left</span>
         </div>
         <div className="footer-rs">
           <FFButton text="All" />

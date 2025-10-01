@@ -79,8 +79,11 @@ body{
 .normal-btn-style.bordered{ 
   border: 1px solid rgba(128, 128, 128, 0.329) 
 }
+.normal-btn-style.active-btn{ 
+  border: 1px solid rgba(243, 11, 11, 0.329) 
+}
 .normal-btn-style.W100{ 
-  width: 100px 
+  width: 150px 
 }
 .todo-container{
   width: 700px;
@@ -122,13 +125,5 @@ button.normal-btn-style:hover{
     border: 1px solid #d00;
     color: #d00;
 }
-.search-box-cover{
-  position: relative;
-  svg{
-    position: absolute;
-    right: 5px;
-    top:7px;
-    cursor: pointer;
-  }
-}
+
 

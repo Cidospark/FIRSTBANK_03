@@ -13,3 +13,6 @@
 .todo-row:last-child{
     border: none;
 }
+.uppercase-text{
+    text-transform: uppercase;
+}

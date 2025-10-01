@@ -1,8 +1,8 @@
-import type { TodoItemListProps } from "../../models/TodoItemProps.model";
+import type { TodoItemListModel } from "../../models/TodoItemModel.model";
 import TodoItem from "../TodoItem/TodoItem";
 
 
-function TodoItemList({ list }: Readonly<TodoItemListProps>) {
+function TodoItemList({ list }: Readonly<TodoItemListModel>) {
     
     return <div className='todo-items'>
           {

@@ -1,77 +1,80 @@
-// import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import TodoItem from './components/TodoItem/TodoItem'
 import TodoItemList from './components/TodoItemList/TodoItemList'
 import "./App.css"
 import FFButton from './components/FFButton/FFButton'
-import { useEffect, useState } from 'react'
-import { list } from './services/todoServices'
-import type { TodoItemProps } from './models/TodoItemProps.model'
+import { UseTodoContext } from './hook/TodoContext'
+import type { TodoItemModel } from './models/TodoItemModel.model'
+
 
 function App() {
   const [showSearchBox, setShowSearchBox] = useState(false);
-  const [itemsLeft, setItemsLeft] = useState(0)
+  const [list, setList] = useState<TodoItemModel[]>([]);
   const [formData, setFormData] = useState({newTask:""})
-  const [formErrData, setFormErrorData] = useState({newTask:""})
-  const [searchData, setSearchData] = useState({term:""})
-  const [list2, setList] = useState<TodoItemProps[]>(list)
-  
-  useEffect(() => {
-    
-  }, [])
+  const [errMsg, setErrMsg] = useState({text:""})
+  const {todos, addTodo} = UseTodoContext();
+  const [activeBtn, setActiveBtnText] = useState('all');
 
-  useEffect(() => {
-    setList(list2)
-    //setItemsLeft((list2.filter(l => l.status.toLocaleUpperCase() != "completed")).length)
-    const itemsLeft = list2.filter(l => l.status.toLocaleUpperCase() == "completed");
-    console.log(itemsLeft)
-  }, [list2])
+  useEffect(() =>{
+    setList(todos)
+  },[todos])
+
+/** functionalities starts here */
 
   function toggleSearchBar(){
     setShowSearchBox(!showSearchBox);
   }
 
-  /** functionalities starts here */
-  function handleOnChangeForAddData(e){
+  function handleChangeOnFormData(e: React.ChangeEvent<HTMLInputElement>) {
     setFormData({...formData, [e.target.name]: e.target.value})
   }
 
   function handleAddTodo(){
-    // AddTodo({id:Date.now(), text:formData.newTask, status:"activate"});
-    // if(formData.newTask === "") return;
-    const err : {newTask:string} = validateFormData()
-    if(err.newTask == ""){
-      setList([...list2, {id:Date.now(), text:formData.newTask, status:"activate"}])
+    if(isValidText(formData.newTask, "New todo")){
+      addTodo({ id:Date.now(), status: "start", text: formData.newTask });
+      setErrMsg({text:""})
+    }
+
+  }
+
+  function handleClearTextBox(){
+     setErrMsg({text:""})
+  }
+
+  function isValidText(str: string, ops: string):boolean{
+    let result:boolean = false;
+    
+    if(str == ""){
+      setErrMsg({text:"Invalid entry!"})
+    }else if(str.length < 2 || str.length > 20){
+      setErrMsg({text:ops + " must be between 1 - 20 characters long!"})
     }else{
-      setFormErrorData(err);
+      result = true;
     }
+
+    return result;
   }
 
-  function handleOnChangeForSearchData(e){
-    setSearchData({...searchData, [e.target.name]: e.target.value})
+  function handleFetchAllTodos(){
+    setList(todos);
+    setActiveBtnText('all')
   }
 
-  function search(){
-    const filtered = list2.filter(l => l.text.toLocaleLowerCase().includes(searchData.term));
-    if(searchData.term.length <= 0) {setList(list) }else{ setList(filtered);}
+  function handleActiveTodos(){
+    setList(todos.filter(t => t.status.toLowerCase() == 'start'))
+    setActiveBtnText('active')
   }
-  /** functionalities ends here */
 
-
-  function validateFormData(): {newTask:string}{
-    const errors: {newTask:string} = {newTask:""};
-    if(formData.newTask.length < 2 || formData.newTask.length > 20)
-    {
-      errors.newTask = "Characters length must be between 2 and 20."
-    }
-    if(!formData.newTask)
-    {
-      errors.newTask = "Todo cannot be empty!"
-    }
-    return errors
+  function handleCompletedTodos(){
+    setList(todos.filter(t => t.status.toLowerCase() == 'completed'))
+    setActiveBtnText('completed')
   }
+
+/** functionalities ends here */
+
 
   return (
-<div className='todo-container'>
+    <div className='todo-container'>
       <div className='white-bg container'>
         <section className='header' style={{textAlign:"center"}}>
           <h1>THINGS TO DO</h1>
@@ -82,35 +85,34 @@ function App() {
                   name='newTask' 
                   placeholder='Add New' 
                   className='input-control' 
-                  onChange={handleOnChangeForAddData}
+                  onChange={handleChangeOnFormData}
+                  onClick={handleClearTextBox}
             />
-            <p style={{color:"red"}}>{formErrData.newTask}</p>
+            <p style={{color:"red"}}>{errMsg.text}</p>
           </div>
-          <TodoItemList  list={list2} />
+          {list.length > 0 && <TodoItemList  list={list} />} 
+          {list.length < 1 && <div style={{color:"red", paddingBottom:"15px"}}>No todo found!</div>} 
         </section>
       </div>
       <section className='footer light-green-bg'>
         <div className="footer-ls">
-          <FFButton funcHandler={() => handleAddTodo()} text={
+          <FFButton funcHandler={handleAddTodo} text={
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
           } />
-          <FFButton funcHandler={toggleSearchBar} functionHandleSearch={handleOnChangeForSearchData} text={
+          <FFButton funcHandler={toggleSearchBar} text={
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>} />
             
             {showSearchBox && <div className='search-box'>
-              <div className='search-box-cover'>
-                <svg onClick={search} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
-                <input type='text' name='term' placeholder='search...' className='input-control'  onChange={handleOnChangeForSearchData} />
-                </div>
+              <input type='text' name='search' placeholder='search...' className='input-control' />
             </div>}
 
             <div> | </div>
-            <span>{itemsLeft} items left</span>
+            <span>{list.length} items left</span>
         </div>
         <div className="footer-rs">
-          <FFButton text="All" />
-          <FFButton text="Active" />
-          <FFButton text="Completed" />
+          <FFButton funcHandler={handleFetchAllTodos} text="All" activeBtn={activeBtn == 'all'? 'active-btn':''} />
+          <FFButton funcHandler={handleActiveTodos}  text="Active" activeBtn={activeBtn == 'active'? 'active-btn':''} />
+          <FFButton funcHandler={handleCompletedTodos}  text="Completed" activeBtn={activeBtn == 'completed'? 'active-btn':''} />
         </div>
       </section>
     </div>
