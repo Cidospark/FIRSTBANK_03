@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "wyAY1uovees=",
+  "success": false,
+  "projectFilePath": "/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Infrastructure/EmployeeManagmeentSystem.Infrastructure.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Error",
+      "message": "Failed to download package 'System.Text.Json.9.0.9' from 'https://api.nuget.org/v3-flatcontainer/system.text.json/9.0.9/system.text.json.9.0.9.nupkg'.\nAn error occurred while sending the request.\n  The decryption operation failed, see inner exception.\n  decryption failure"
+    },
+    {
+      "code": "Undefined",
+      "level": "Error",
+      "message": "The feed 'nuget.org [https://api.nuget.org/v3/index.json]' lists package 'System.Text.Json.9.0.9' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again."
+    }
+  ]
+}
