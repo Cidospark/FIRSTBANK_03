@@ -1,0 +1,16 @@
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/bin/Debug/net9.0/EmployeeManagmeentSystem.Application.deps.json
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/bin/Debug/net9.0/EmployeeManagmeentSystem.Application.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/bin/Debug/net9.0/EmployeeManagmeentSystem.Application.pdb
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/bin/Debug/net9.0/EmployeeManagmentSystem.Domain.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/bin/Debug/net9.0/EmployeeManagmentSystem.Domain.pdb
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/EmployeeManagmeentSystem.Application.csproj.AssemblyReference.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/EmployeeManagmeentSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/EmployeeManagmeentSystem.Application.AssemblyInfoInputs.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/EmployeeManagmeentSystem.Application.AssemblyInfo.cs
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/EmployeeManagmeentSystem.Application.csproj.CoreCompileInputs.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/EmployeeManagmeentSystem.Application.sourcelink.json
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/Employee.02340667.Up2Date
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/EmployeeManagmeentSystem.Application.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/refint/EmployeeManagmeentSystem.Application.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/EmployeeManagmeentSystem.Application.pdb
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmeentSystem.Application/obj/Debug/net9.0/ref/EmployeeManagmeentSystem.Application.dll

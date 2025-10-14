@@ -1,0 +1,12 @@
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/bin/Debug/net9.0/EmployeeManagmentSystem.Domain.deps.json
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/bin/Debug/net9.0/EmployeeManagmentSystem.Domain.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/bin/Debug/net9.0/EmployeeManagmentSystem.Domain.pdb
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/obj/Debug/net9.0/EmployeeManagmentSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/obj/Debug/net9.0/EmployeeManagmentSystem.Domain.AssemblyInfoInputs.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/obj/Debug/net9.0/EmployeeManagmentSystem.Domain.AssemblyInfo.cs
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/obj/Debug/net9.0/EmployeeManagmentSystem.Domain.csproj.CoreCompileInputs.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/obj/Debug/net9.0/EmployeeManagmentSystem.Domain.sourcelink.json
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/obj/Debug/net9.0/EmployeeManagmentSystem.Domain.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/obj/Debug/net9.0/refint/EmployeeManagmentSystem.Domain.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/obj/Debug/net9.0/EmployeeManagmentSystem.Domain.pdb
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Domain/obj/Debug/net9.0/ref/EmployeeManagmentSystem.Domain.dll
