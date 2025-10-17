@@ -1,0 +1,16 @@
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/bin/Debug/net9.0/TodoApp.Application.deps.json
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/bin/Debug/net9.0/TodoApp.Application.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/bin/Debug/net9.0/TodoApp.Application.pdb
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/bin/Debug/net9.0/TodoApp.Domain.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/bin/Debug/net9.0/TodoApp.Domain.pdb
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.csproj.AssemblyReference.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.AssemblyInfoInputs.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.AssemblyInfo.cs
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.csproj.CoreCompileInputs.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.sourcelink.json
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/TodoApp..05D78BBE.Up2Date
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/refint/TodoApp.Application.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.pdb
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/obj/Debug/net9.0/ref/TodoApp.Application.dll

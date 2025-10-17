@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pc\\source\\repos\\LinqDemo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|c:\\users\\pc\\source\\repos\\linqdemo\\linqdemo\\grouping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|solutionrelative:linqdemo\\grouping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|c:\\users\\pc\\source\\repos\\linqdemo\\linqdemo\\models\\grouplist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|solutionrelative:linqdemo\\models\\grouplist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|c:\\users\\pc\\source\\repos\\linqdemo\\linqdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|solutionrelative:linqdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|c:\\users\\pc\\source\\repos\\linqdemo\\linqdemo\\sorting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|solutionrelative:linqdemo\\sorting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|c:\\users\\pc\\source\\repos\\linqdemo\\linqdemo\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|solutionrelative:linqdemo\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|c:\\users\\pc\\source\\repos\\linqdemo\\linqdemo\\filtering.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A196002-44AC-4024-B8B5-37A91689FA46}|LinqDemo\\LinqDemo.csproj|solutionrelative:linqdemo\\filtering.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Grouping.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Grouping.cs",
+              "RelativeDocumentMoniker": "LinqDemo\\Grouping.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Grouping.cs",
+              "RelativeToolTip": "LinqDemo\\Grouping.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:21:55.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GroupList.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Models\\GroupList.cs",
+              "RelativeDocumentMoniker": "LinqDemo\\Models\\GroupList.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Models\\GroupList.cs",
+              "RelativeToolTip": "LinqDemo\\Models\\GroupList.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:15:22.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Person.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Models\\Person.cs",
+              "RelativeDocumentMoniker": "LinqDemo\\Models\\Person.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Models\\Person.cs",
+              "RelativeToolTip": "LinqDemo\\Models\\Person.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:45:42.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Sorting.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Sorting.cs",
+              "RelativeDocumentMoniker": "LinqDemo\\Sorting.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Sorting.cs",
+              "RelativeToolTip": "LinqDemo\\Sorting.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:43:24.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Filtering.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Filtering.cs",
+              "RelativeDocumentMoniker": "LinqDemo\\Filtering.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Filtering.cs",
+              "RelativeToolTip": "LinqDemo\\Filtering.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:15:44.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Program.cs",
+              "RelativeDocumentMoniker": "LinqDemo\\Program.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\LinqDemo\\LinqDemo\\Program.cs",
+              "RelativeToolTip": "LinqDemo\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T10:49:12.332Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

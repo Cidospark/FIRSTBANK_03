@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "dlV33fCtquQ=",
+  "success": true,
+  "projectFilePath": "/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Application/TodoApp.Application.csproj",
+  "expectedPackageFiles": [
+    "/Users/mrfrancis/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.10/microsoft.extensions.dependencyinjection.abstractions.9.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}
