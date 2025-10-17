@@ -139,3 +139,14 @@
 /Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/AutoMapper.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/TodoApp.Api/TodoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

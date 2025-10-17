@@ -21,6 +21,7 @@ namespace TodoApp.Infrastructure
             });
 
             services.AddScoped<ITodoRepository, TodoRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             return services;
         }

@@ -14,6 +14,7 @@ namespace TodoApp.Application.Services
         Task<ResponseObject<TodoResponse>> GetSingleTodoAsync(string todoId);
         Task<ResponseObject<IEnumerable<TodoResponse>>> GetAllTodosAsync(int page, int size);
         Task<ResponseObject<TodoResponse>> UpdateTodoAsync(string id, TodoRequest request);
-        Task<ResponseObject<Boolean>> DeleteTodoAsync(string id); 
+        Task<ResponseObject<Boolean>> DeleteTodoAsync(string id);
+        Task<ResponseObject<IEnumerable<TodoResponse>>> GetTodosByUserId(string userId, int page, int size);
     }
 }
