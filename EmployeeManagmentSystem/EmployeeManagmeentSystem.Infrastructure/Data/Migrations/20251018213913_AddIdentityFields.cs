@@ -198,7 +198,8 @@ namespace EmployeeManagmeentSystem.Infrastructure.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_EmployeeId",
                 table: "AspNetUsers",
-                column: "EmployeeId");
+                column: "EmployeeId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",

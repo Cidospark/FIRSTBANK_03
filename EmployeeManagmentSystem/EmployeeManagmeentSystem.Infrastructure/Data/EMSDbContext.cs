@@ -17,5 +17,16 @@ namespace EmployeeManagmeentSystem.Infrastructure.Data
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<ApplicationUser>()
+            .HasOne(u => u.Employee)
+            .WithOne()
+            .HasForeignKey<ApplicationUser>(u => u.EmployeeId)
+            .OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }

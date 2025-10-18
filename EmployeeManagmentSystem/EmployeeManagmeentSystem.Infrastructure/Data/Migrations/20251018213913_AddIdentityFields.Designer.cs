@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EmployeeManagmeentSystem.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(EMSDbContext))]
-    [Migration("20251018212813_AddIdentityFields")]
+    [Migration("20251018213913_AddIdentityFields")]
     partial class AddIdentityFields
     {
         /// <inheritdoc />
@@ -83,7 +83,8 @@ namespace EmployeeManagmeentSystem.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeId");
+                    b.HasIndex("EmployeeId")
+                        .IsUnique();
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -291,8 +292,8 @@ namespace EmployeeManagmeentSystem.Infrastructure.Data.Migrations
             modelBuilder.Entity("EmployeeManagmeentSystem.Infrastructure.Identity.ApplicationUser", b =>
                 {
                     b.HasOne("EmployeeManagmentSystem.Domain.Entities.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeId")
+                        .WithOne()
+                        .HasForeignKey("EmployeeManagmeentSystem.Infrastructure.Identity.ApplicationUser", "EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
