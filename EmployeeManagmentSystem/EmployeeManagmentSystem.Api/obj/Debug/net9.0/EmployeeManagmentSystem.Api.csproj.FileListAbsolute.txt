@@ -141,3 +141,4 @@
 /Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/obj/Debug/net9.0/EmployeeManagmentSystem.Api.pdb
 /Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/obj/Debug/net9.0/EmployeeManagmentSystem.Api.genruntimeconfig.cache
 /Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/obj/Debug/net9.0/ref/EmployeeManagmentSystem.Api.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
