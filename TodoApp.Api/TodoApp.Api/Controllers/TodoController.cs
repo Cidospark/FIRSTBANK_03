@@ -16,7 +16,7 @@ using TodoApp.Infrastructure.Data;
 namespace TodoApp.Api.Controllers
 {
     [Route("[controller]")]
-    // [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class TodoController : ControllerBase
     {
         private readonly ILogger<TodoController> _logger;

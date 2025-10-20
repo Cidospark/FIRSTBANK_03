@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TodoApp.Application.DTOs.Request;
@@ -11,6 +12,7 @@ using TodoApp.Application.Services;
 namespace TodoApp.Api.Controllers
 {
     [Route("[controller]")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -21,17 +23,7 @@ namespace TodoApp.Api.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] UserRequest request)
-        {
-            if(!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var result = await _userService.AddUserAsync(request);
-            return CreatedAtAction(nameof(GetSingle), new { id = result.Data?.Id }, result);
-        }
+        
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingle([FromRoute] string id)
@@ -64,6 +56,7 @@ namespace TodoApp.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete([FromRoute] string id)
         {
             var result = await _userService.DeleteUserAsync(id);

@@ -10,7 +10,6 @@ namespace TodoApp.Application
         {
             services.AddScoped<ITodoService, TodoService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IAuthService, AuthService>();
             services.AddAutoMapper(typeof(TodoAppMappingProfile));
             return services;
         }

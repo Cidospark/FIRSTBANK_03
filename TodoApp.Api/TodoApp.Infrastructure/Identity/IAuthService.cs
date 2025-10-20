@@ -9,10 +9,11 @@ using TodoApp.Application.DTOs.Request;
 using TodoApp.Application.DTOs.Response;
 using TodoApp.Domain.Entities;
 
-namespace TodoApp.Application.Services
+namespace TodoApp.Infrastructure.Identity
 {
     public interface IAuthService
     {
+        Task<ResponseObject<UserResponse>> RegisterUser(UserRequest request);
         Task<ResponseObject<LoginResponse>> Login(LoginRequest request);
     }
 }

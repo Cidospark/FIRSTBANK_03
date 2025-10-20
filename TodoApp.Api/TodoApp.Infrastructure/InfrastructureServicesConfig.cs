@@ -11,6 +11,7 @@ using TodoApp.Application.Repositories;
 using TodoApp.Application.Services;
 using TodoApp.Domain.Entities;
 using TodoApp.Infrastructure.Data;
+using TodoApp.Infrastructure.Identity;
 using TodoApp.Infrastructure.Repositories;
 
 namespace TodoApp.Infrastructure
@@ -23,6 +24,15 @@ namespace TodoApp.Infrastructure
             {
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedEmail = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+            })
+            .AddEntityFrameworkStores<TodoAppDbContext>()
+            .AddDefaultTokenProviders();
 
             services.AddScoped<ITodoRepository, TodoRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
