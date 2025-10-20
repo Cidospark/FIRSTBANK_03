@@ -14,7 +14,7 @@ namespace TodoApp.Application.DTOs.Request
         public string Email { get; set; } = "";
 
 
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\\w\\d\\s])([^\\s]){8,16}$",ErrorMessage = "requires at least one lowercase letter, one uppercase letter, one number, one special character, and a total length of 8 to 16 characters")]
+        // [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\\w\\d\\s])([^\\s]){8,16}$",ErrorMessage = "requires at least one lowercase letter, one uppercase letter, one number, one special character, and a total length of 8 to 16 characters")]
         public string Password { get; set; } = "";
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using TodoApp.Application.Repositories;
+using TodoApp.Application.Services;
 using TodoApp.Domain.Entities;
 using TodoApp.Infrastructure.Data;
 using TodoApp.Infrastructure.Repositories;
@@ -23,13 +24,9 @@ namespace TodoApp.Infrastructure
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddIdentity<User, IdentityRole>(Options =>
-            {
-
-            });
-
             services.AddScoped<ITodoRepository, TodoRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAuthService, AuthService>();
 
             return services;
         }

@@ -13,5 +13,6 @@ namespace TodoApp.Application.Repositories
         Task<IQueryable<User>> GetAllUsersAsync();
         Task UpdateUserAsync(User user);
         Task DeleteUserAsync(User user);
+        Task<User?> GetUseryEmail(string email);
     }
 }

@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using TodoApp.Application.DTOs.Request;
 using TodoApp.Application.Services;
-using TodoApp.Domain.Entities;
 
 namespace TodoApp.Api.Controllers
 {
@@ -16,20 +14,25 @@ namespace TodoApp.Api.Controllers
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;
-
         public AuthController(IAuthService authService)
         {
             _authService = authService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login([FromBody] TodoApp.Application.DTOs.Request.LoginRequest request)
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody]LoginRequest request)
         {
-            if(request.Email == "user@example.com" && request.Password == "password123")
+            if (!ModelState.IsValid)
             {
-                return Ok(await _authService.GenerateAccessToken(new User(){Email = "user@example.com"}, new List<string> { }, new List<Claim> {}));
-            };
-            return BadRequest();
+                return BadRequest(ModelState);
+            }
+            
+            var result = await _authService.Login(request);
+            if (result.StatusCode == 200)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }

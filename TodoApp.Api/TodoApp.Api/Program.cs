@@ -14,7 +14,11 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen(config =>
 {
-    config.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoApp API", Version = "v1" });
+    config.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "TodoApp API",
+        Version = "v1"
+    });
 
     config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {

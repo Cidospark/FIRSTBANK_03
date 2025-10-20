@@ -8,13 +8,13 @@ using TodoApp.Domain.Abstractions;
 
 namespace TodoApp.Domain.Entities
 {
-    public class User : IdentityUser
+    public class User : BaseEntity
     {
         public string FirstName { get; set; } = "";
         public string LastName { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string Password { get; set; } = "";
         public string PhotoUrl { get; set; } = "";
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         // Navigation property for related Todo items
         public ICollection<Todo> Todos { get; set; } = [];

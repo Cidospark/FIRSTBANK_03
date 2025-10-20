@@ -12,7 +12,7 @@ using TodoApp.Infrastructure.Data;
 namespace TodoApp.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(TodoAppDbContext))]
-    [Migration("20251016080428_InitialCreate")]
+    [Migration("20251020101009_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -78,6 +78,10 @@ namespace TodoApp.Infrastructure.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("text");
 

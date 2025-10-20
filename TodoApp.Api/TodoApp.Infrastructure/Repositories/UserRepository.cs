@@ -39,6 +39,11 @@ namespace TodoApp.Infrastructure.Repositories
             return await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
         }
 
+        public async Task<User?> GetUseryEmail(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
         public async Task UpdateUserAsync(User user)
         {
             _context.Update(user);
