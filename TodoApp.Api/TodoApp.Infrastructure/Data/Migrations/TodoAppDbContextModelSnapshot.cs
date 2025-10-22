@@ -259,6 +259,14 @@ namespace TodoApp.Infrastructure.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
+                    b.Property<string>("OTP")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("OTPExpiry")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("text");
 

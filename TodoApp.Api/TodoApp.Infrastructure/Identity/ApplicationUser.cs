@@ -12,5 +12,9 @@ namespace TodoApp.Infrastructure.Identity
         //  a 1 - 1 relationship between the ApplicationUser (IdentityUser) && the User entity
         public string UserId { get; set; } = "";
         public User? User { get; set; }
+
+        public string OTP { get; set; } = "";
+        public string OTPExpiry { get; set; } = "";
+
     }
 }

@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EmployeeManagmeentSystem.Application.Services;
 using EmployeeManagmeentSystem.Infrastructure.Data;
 using EmployeeManagmeentSystem.Infrastructure.Identity;
+using EmployeeManagmeentSystem.Infrastructure.Notificaation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +25,10 @@ namespace EmployeeManagmeentSystem.Infrastructure
             {
                 options.SignIn.RequireConfirmedEmail = true;
             }).AddEntityFrameworkStores<EMSDbContext>().AddDefaultTokenProviders();
+
+            services.AddScoped<IMailService, MailService>();
+
+            services.AddSwaggerGen();
 
             // other infrastructure services like (repositories, logging, etc.) will go in here...
 

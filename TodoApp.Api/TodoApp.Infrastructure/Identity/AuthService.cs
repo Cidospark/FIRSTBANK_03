@@ -12,7 +12,9 @@ using Microsoft.IdentityModel.Tokens;
 using TodoApp.Application.Abstractions;
 using TodoApp.Application.DTOs.Request;
 using TodoApp.Application.DTOs.Response;
+using TodoApp.Application.Identity;
 using TodoApp.Application.Repositories;
+using TodoApp.Application.Services.Notification;
 using TodoApp.Domain.Entities;
 
 namespace TodoApp.Infrastructure.Identity
@@ -25,17 +27,20 @@ namespace TodoApp.Infrastructure.Identity
         private readonly IConfiguration _configuration;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserRepository _userRepository;
+        private readonly IMailService _mailService;
         private readonly IMapper _mapper;
 
         public AuthService(IConfiguration configuration,
                             IMapper mapper,
                             UserManager<ApplicationUser> userManager,
-                            IUserRepository userRepository)
+                            IUserRepository userRepository,
+                            IMailService mailService)
         {
             _configuration = configuration;
             _mapper = mapper;
             _userManager = userManager;
             _userRepository = userRepository;
+            _mailService = mailService;
         }
         private async Task<string> GenerateAccessTokenAsync(User user, List<string> roles, List<Claim> claims)
         {
@@ -138,7 +143,7 @@ namespace TodoApp.Infrastructure.Identity
             };
 
         }
-    
+
         public async Task<ResponseObject<UserResponse>> RegisterUser(UserRequest request)
         {
             // validate info to register user
@@ -166,6 +171,8 @@ namespace TodoApp.Infrastructure.Identity
             }
 
             // construct new user for both identiy user table and user table
+
+            var otpCode = OTPGenerator.GenerateOTP(6);
             var newUser = new User
             {
                 FirstName = request.FirstName,
@@ -177,7 +184,9 @@ namespace TodoApp.Infrastructure.Identity
                 UserId = newUser.Id,
                 Email = newUser.Email,
                 UserName = newUser.Email,
-                User = newUser
+                User = newUser,
+                OTP = otpCode,
+                OTPExpiry = DateTime.UtcNow.AddHours(1).ToString()
             };
 
             // create user
@@ -187,10 +196,16 @@ namespace TodoApp.Infrastructure.Identity
                 // add role of 'user' to the newly created applicationUser on successful registration
                 await _userManager.AddToRoleAsync(userToAdd, "user");
 
+                var spanStyle = "background-color:grey; padding:2px; border-radius: 6px;";
+                await _mailService.SendMessage("Confirm email", new List<string> { newUser.Email }, @$"
+                    <h1>Hi! {newUser.FirstName},</h1>
+                    <p>Welcome! Please use this confirmation code <span style={spanStyle}>{otpCode}</span> to confirm your email on the app. Thank you for choosing this todo app.</p>
+                ");
+
                 return new ResponseObject<UserResponse>
                 {
                     StatusCode = 200,
-                    Message = "New user registered!",
+                    Message = $"New user registered! A confirmation code has been sent to {newUser.Email}.",
                     Data = new UserResponse
                     {
                         Id = newUser.Id,
@@ -209,6 +224,141 @@ namespace TodoApp.Infrastructure.Identity
                 StatusCode = 400,
                 Message = "User registration failed!",
                 Errors = errors
+            };
+        }
+
+        public async Task<ResponseObject<bool>> ConfirmEmail(string email, string OTPToken)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                if (await _userManager.IsEmailConfirmedAsync(user))
+                {
+                    return new ResponseObject<bool>
+                    {
+                        StatusCode = 400,
+                        Message = "Email confirmation failed.",
+                        Errors = new List<string> { "Email is already confirmed!" }
+                    };
+                }
+
+                if (user.OTP != OTPToken || DateTime.UtcNow > Convert.ToDateTime(user.OTPExpiry))
+                {
+                    return new ResponseObject<bool>
+                    {
+                        StatusCode = 400,
+                        Message = "Email confirmation failed.",
+                        Errors = new List<string> { "Token is invalid or expired!" }
+                    };
+                }
+
+                user.EmailConfirmed = true;
+                user.OTP = string.Empty;
+                user.OTPExpiry = string.Empty;
+
+                await _userManager.UpdateAsync(user);
+
+                return new ResponseObject<bool>
+                {
+                    StatusCode = 200,
+                    Message = "Email confirmed!",
+                    Data = true
+                };
+            }
+            
+            return new ResponseObject<bool>
+            {
+                StatusCode = 400,
+                Message = "Email confirmation failed.",
+                Errors = new List<string> { $"User was not found with email {user.Email}!" }
+            };
+        }
+
+        public async Task<ResponseObject<bool>> ForgotPassword(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return new ResponseObject<bool>
+                {
+                    StatusCode = 400,
+                    Message = "Forgot password failed.",
+                    Errors = new List<string> { $"User was not found with email {user.Email}!" }
+                };
+            }
+
+            var otpCode = OTPGenerator.GenerateOTP(6);
+            user.OTP = otpCode;
+            user.OTPExpiry = DateTime.UtcNow.AddMinutes(10).ToString();
+            var forgotPasswordResult = await _userManager.UpdateAsync(user);
+            if (forgotPasswordResult.Succeeded)
+            {
+                var spanStyle = "background-color:grey; padding:2px; border-radius: 6px;";
+                await _mailService.SendMessage("Forgot password", new List<string> { user.Email }, @$"
+                    <h1>Hi! {user.UserName},</h1>
+                    <p>We received your forgot password request. Use the code <span style={spanStyle}>{otpCode}</span> to reset your password on the app. Thank you for choosing this todo app.</p>
+                ");
+                return new ResponseObject<bool>
+                {
+                    StatusCode = 200,
+                    Message = $"A reset password code has been sent to {user.Email}.",
+                    Data = true
+                };
+            }
+
+            return new ResponseObject<bool>
+            {
+                StatusCode = 400,
+                Message = "Forgot password failed.",
+                Errors = forgotPasswordResult.Errors.Select(err => err.Description).ToList()
+            };
+        }
+
+        public async Task<ResponseObject<bool>> ResetPassword(string email, string OTPToken, string newPassword)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                if (user.OTP != OTPToken || DateTime.UtcNow > Convert.ToDateTime(user.OTPExpiry))
+                {
+                    return new ResponseObject<bool>
+                    {
+                        StatusCode = 400,
+                        Message = "Reset password failed.",
+                        Errors = new List<string> { "Token is invalid or expired!" }
+                    };
+                }
+
+                var resetPasswordTokenGenerated = await _userManager.GeneratePasswordResetTokenAsync(user);
+                user.OTP = string.Empty;
+                user.OTPExpiry = string.Empty;
+
+                await _userManager.ResetPasswordAsync(user, resetPasswordTokenGenerated, newPassword);
+                var updateResult = await _userManager.UpdateAsync(user);
+
+                if (!updateResult.Succeeded)
+                {
+                    return new ResponseObject<bool>
+                    {
+                        StatusCode = 400,
+                        Message = "Forgot password failed.",
+                        Errors = updateResult.Errors.Select(err => err.Description).ToList()
+                    };
+                }
+                
+                return new ResponseObject<bool>
+                {
+                    StatusCode = 200,
+                    Message = "Password reset successful.",
+                    Data = true
+                };
+            }
+            
+            return new ResponseObject<bool>
+            {
+                StatusCode = 400,
+                Message = "Password reset failed.",
+                Errors = new List<string> { $"User was not found with email {user.Email}!" }
             };
         }
     }

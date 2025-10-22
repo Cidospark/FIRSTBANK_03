@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -57,6 +58,7 @@ namespace TodoApp.Api.Controllers
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "admin")]
+        [Authorize(Roles = "user, admin")]
         public async Task<IActionResult> Delete([FromRoute] string id)
         {
             var result = await _userService.DeleteUserAsync(id);

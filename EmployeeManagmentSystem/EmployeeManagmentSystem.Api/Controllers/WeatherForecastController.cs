@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using EmployeeManagmeentSystem.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagmentSystem.Api.Controllers;
@@ -12,15 +14,19 @@ public class WeatherForecastController : ControllerBase
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
+    private readonly IMailService _mailService;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, IMailService mailService)
     {
         _logger = logger;
+        _mailService = mailService;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    public async Task<IEnumerable<WeatherForecast>> Get()
     {
+        await _mailService.SendMessageAsync("Testing", new List<string> { "engrcidos@outlook.com" },  "Hi, Francis");
+        // throw new Exception("Caught error!");
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

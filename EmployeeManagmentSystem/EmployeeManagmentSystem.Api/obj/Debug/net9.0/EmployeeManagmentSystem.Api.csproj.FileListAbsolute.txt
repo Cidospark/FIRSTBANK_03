@@ -142,3 +142,10 @@
 /Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/obj/Debug/net9.0/EmployeeManagmentSystem.Api.genruntimeconfig.cache
 /Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/obj/Debug/net9.0/ref/EmployeeManagmentSystem.Api.dll
 /Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/bin/Debug/net9.0/nlog.config
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/bin/Debug/net9.0/NLog.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/bin/Debug/net9.0/NLog.Extensions.Logging.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/bin/Debug/net9.0/NLog.Web.AspNetCore.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/bin/Debug/net9.0/BouncyCastle.Cryptography.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/bin/Debug/net9.0/MailKit.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/EmployeeManagmentSystem/EmployeeManagmentSystem.Api/bin/Debug/net9.0/MimeKit.dll

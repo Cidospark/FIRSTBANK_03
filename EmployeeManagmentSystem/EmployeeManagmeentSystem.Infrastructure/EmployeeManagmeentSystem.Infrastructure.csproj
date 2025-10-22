@@ -9,6 +9,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.9"/>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4"/>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0"/>
+    <PackageReference Include="MailKit" Version="4.8.0"/>
+    <PackageReference Include="MimeKit" Version="4.8.0"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../EmployeeManagmeentSystem.Application/EmployeeManagmeentSystem.Application.csproj"/>
