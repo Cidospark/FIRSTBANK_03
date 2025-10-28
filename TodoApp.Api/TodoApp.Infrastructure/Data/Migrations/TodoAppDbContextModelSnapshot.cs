@@ -154,6 +154,20 @@ namespace TodoApp.Infrastructure.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("TodoApp.Domain.Entities.Role", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Role");
+                });
+
             modelBuilder.Entity("TodoApp.Domain.Entities.Todo", b =>
                 {
                     b.Property<string>("Id")
@@ -224,6 +238,28 @@ namespace TodoApp.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("TodoApp.Domain.Entities.UsersRoles", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UsersRoles");
                 });
 
             modelBuilder.Entity("TodoApp.Infrastructure.Identity.ApplicationUser", b =>
@@ -366,6 +402,25 @@ namespace TodoApp.Infrastructure.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TodoApp.Domain.Entities.UsersRoles", b =>
+                {
+                    b.HasOne("TodoApp.Domain.Entities.Role", "Role")
+                        .WithMany("UsersRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TodoApp.Domain.Entities.User", "User")
+                        .WithMany("UsersRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TodoApp.Infrastructure.Identity.ApplicationUser", b =>
                 {
                     b.HasOne("TodoApp.Domain.Entities.User", "User")
@@ -377,9 +432,16 @@ namespace TodoApp.Infrastructure.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TodoApp.Domain.Entities.Role", b =>
+                {
+                    b.Navigation("UsersRoles");
+                });
+
             modelBuilder.Entity("TodoApp.Domain.Entities.User", b =>
                 {
                     b.Navigation("Todos");
+
+                    b.Navigation("UsersRoles");
                 });
 #pragma warning restore 612, 618
         }

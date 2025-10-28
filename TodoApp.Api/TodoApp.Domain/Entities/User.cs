@@ -17,5 +17,8 @@ namespace TodoApp.Domain.Entities
 
         // Navigation property for related Todo items
         public ICollection<Todo> Todos { get; set; } = [];
+
+        //public ICollection<Roles> Role { get; set; } = [];
+        public List<UsersRoles> UsersRoles { get; set; } = [];
     }
 }

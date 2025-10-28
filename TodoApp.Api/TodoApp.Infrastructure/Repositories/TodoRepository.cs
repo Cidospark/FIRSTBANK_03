@@ -31,6 +31,7 @@ namespace TodoApp.Infrastructure.Repositories
 
         public async Task<IQueryable<Todo>> GetAllTodosAsync()
         {
+            _context.Users.Include(u => u.Todos).Include(ur => ur.UsersRoles);
             return await Task.FromResult(_context.Todos.AsQueryable());
         }
 

@@ -1,0 +1,15 @@
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/bin/Debug/net9.0/Calculator.App
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/bin/Debug/net9.0/Calculator.App.deps.json
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/bin/Debug/net9.0/Calculator.App.runtimeconfig.json
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/bin/Debug/net9.0/Calculator.App.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/bin/Debug/net9.0/Calculator.App.pdb
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/obj/Debug/net9.0/Calculator.App.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/obj/Debug/net9.0/Calculator.App.AssemblyInfoInputs.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/obj/Debug/net9.0/Calculator.App.AssemblyInfo.cs
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/obj/Debug/net9.0/Calculator.App.csproj.CoreCompileInputs.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/obj/Debug/net9.0/Calculator.App.sourcelink.json
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/obj/Debug/net9.0/Calculator.App.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/obj/Debug/net9.0/refint/Calculator.App.dll
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/obj/Debug/net9.0/Calculator.App.pdb
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/obj/Debug/net9.0/Calculator.App.genruntimeconfig.cache
+/Users/mrfrancis/Desktop/FIRSTBANK_03/Calculator.Test/Calculator.App/obj/Debug/net9.0/ref/Calculator.App.dll

@@ -23,16 +23,24 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public async Task<IEnumerable<WeatherForecast>> Get()
+    public async Task<IActionResult> Get()
     {
-        await _mailService.SendMessageAsync("Testing", new List<string> { "engrcidos@outlook.com" },  "Hi, Francis");
-        // throw new Exception("Caught error!");
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        try
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+            throw new Exception("New error in Wether forcast controller");
+            await _mailService.SendMessageAsync("Testing", new List<string> { "engrcidos@outlook.com" }, "Hi, Francis");
+            return Ok(Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+            .ToArray());
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e.Source, e.Message);
+        }
+        return Ok();
     }
 }
