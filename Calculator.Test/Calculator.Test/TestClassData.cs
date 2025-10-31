@@ -6,7 +6,7 @@ public class TestClassData : IEnumerable<object[]>
 {
     public IEnumerable<object[]> ReadData()
     {
-        /* A case where the data are with this class
+        /* A case where the data are in this class
         yield return new object[] { -5, -7, -12 };
         yield return new object[] {-3, -7, -10};
         yield return new object[] {-5, -2, -7};
